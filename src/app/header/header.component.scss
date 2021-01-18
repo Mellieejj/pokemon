@@ -1,0 +1,31 @@
+header {
+  background-color: red;
+  padding: 24px;
+  display: flex;
+  max-width: 100%;
+  justify-content: space-between;
+  align-items: center;
+
+  h1 {
+    color: white;
+  }
+
+  .nav {
+    max-width: 50%;
+    justify-self: flex-end;
+    font-weight: bolder;
+
+    &-list {
+      list-style-type: none;
+      display: flex;
+      align-items: center;
+    }
+
+    &-list__item {
+      background-color: white;
+      color: black;
+      padding: 24px;
+      margin-right: 12px;
+    }
+  }
+}
