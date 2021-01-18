@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { AllPokemonsListComponent } from './all-pokemons-list/all-pokemons-list.component';
 import { StarterPokemonsListComponent } from './starter-pokemons-list/starter-pokemons-list.component';
 import { RegionListComponent } from './region-list/region-list.component';
+import { PokemonCardComponent } from './pokemon-card/pokemon-card.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { RegionListComponent } from './region-list/region-list.component';
     AllPokemonsListComponent,
     StarterPokemonsListComponent,
     RegionListComponent,
+    PokemonCardComponent,
   ],
   imports: [
     BrowserModule,
