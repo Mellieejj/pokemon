@@ -9,10 +9,6 @@ export class HeaderComponent implements OnInit {
   appTitle: string = 'Pokémon App';
   navItems: { name: string; location: string }[] = [
     {
-      name: 'Home',
-      location: '',
-    },
-    {
       name: 'All Pokémons',
       location: 'all-pokemons',
     },
