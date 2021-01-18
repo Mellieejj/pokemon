@@ -21,11 +21,17 @@ header {
       align-items: center;
     }
 
-    &-list__item {
+    &-list__item a {
+      display: block;
+      text-decoration: none;
       background-color: white;
       color: black;
       padding: 24px;
       margin-right: 12px;
+
+      &:hover {
+        background-color: lighten(red, 25%)
+      }
     }
   }
 }
