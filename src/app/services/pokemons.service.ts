@@ -16,4 +16,12 @@ export class PokemonsService {
   getPokemonData(name:string){
     return this.http.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
   }
+
+  getGenerationList(){
+    return this.http.get(`https://pokeapi.co/api/v2/generation/`)
+  }
+
+  getGenerationPokemons(id:number){
+    return this.http.get(`https://pokeapi.co/api/v2/generation/${id}`)
+  }
 }

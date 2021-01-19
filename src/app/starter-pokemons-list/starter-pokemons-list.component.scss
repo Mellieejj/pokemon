@@ -1,0 +1,18 @@
+@import "../../styles.scss";
+
+.pokemon-list {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+  align-items: stretch;
+  justify-content: center;
+}
+
+app-pokemon-card {
+  width: 100%;
+  
+  @include desktop {
+    width: 30%;
+    margin: 6px;
+  }
+}
