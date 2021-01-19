@@ -12,4 +12,8 @@ export class PokemonsService {
   getAllPokemons() {
     return this.http.get(`https://pokeapi.co/api/v2/pokemon?limit=25&offset=0`)
   }
+
+  getPokemonData(name:string){
+    return this.http.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
+  }
 }

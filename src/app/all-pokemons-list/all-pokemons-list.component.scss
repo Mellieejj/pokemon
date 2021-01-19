@@ -1,0 +1,13 @@
+.pokemon-list {
+  margin: 24px 0;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+app-pokemon-card {
+  width: 18%;
+  margin: 12px;
+}

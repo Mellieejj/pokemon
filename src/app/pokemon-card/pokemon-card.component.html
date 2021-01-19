@@ -1,10 +1,21 @@
 <div class="pokemon-card">
   <div class="pokemon-card__img">
-    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/810.png" alt="{{ pokemon.name }}" />
+    <img
+      [src]="pokemon.sprites.other['official-artwork']['front_default']"
+      alt="{{ pokemon.name }}"
+    />
   </div>
   <div class="pokemon-card__content">
-    <h2>{{ pokemon.name }}</h2>
-    <p> {{ pokemon.id }}</p>
-
+    <h2>{{ pokemon.name | titlecase }}</h2>
+    <p><strong>Height: </strong>{{ pokemon.height / 10 }} m</p>
+    <p><strong>Weight: </strong>{{ pokemon.weight / 10 }} kg</p>
+    <p>
+      <span
+        class="pokemon-card__type"
+        [ngStyle]="typeColors(type.type.name)"
+        *ngFor="let type of pokemon.types"
+        >{{ type.type.name | titlecase }}
+      </span>
+    </p>
   </div>
 </div>
