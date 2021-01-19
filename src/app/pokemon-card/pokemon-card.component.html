@@ -13,7 +13,7 @@
       <span
         class="pokemon-card__type"
         [ngStyle]="typeColors(type.type.name)"
-        *ngFor="let type of pokemon.types"
+        *ngFor="let type of pokemon.type"
         >{{ type.type.name | titlecase }}
       </span>
     </p>
