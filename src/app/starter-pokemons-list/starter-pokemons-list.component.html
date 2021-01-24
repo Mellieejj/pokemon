@@ -1,12 +1,17 @@
 <div class="list">
-  <div class="list__region" *ngFor="let region of regions" (click)="onRegionSelect(region)" [class.selectedRegion]="region.region === selectedRegion.region">
+  <div
+    class="list__region"
+    *ngFor="let region of regions"
+    (click)="onRegionSelect(region)"
+    [class.selectedRegion]="region.region === selectedRegion.region"
+  >
     {{ region.region | titlecase }}
   </div>
 </div>
-  
+
 <div *ngIf="selectedRegion" class="pokemon-list">
-    <app-pokemon-card
-      *ngFor="let pokemon of selectedRegion.pokemonsData"
-      [pokemon]="pokemon"
-    ></app-pokemon-card>
-  </div>
+  <app-pokemon-card
+    *ngFor="let pokemon of selectedRegion.pokemonsData"
+    [pokemon]="pokemon"
+  ></app-pokemon-card>
+</div>

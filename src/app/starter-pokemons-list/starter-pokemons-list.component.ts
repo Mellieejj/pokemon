@@ -6,7 +6,6 @@ import { PokemonsService } from '../services/pokemons.service';
   templateUrl: './starter-pokemons-list.component.html',
   styleUrls: ['./starter-pokemons-list.component.scss'],
 })
-
 export class StarterPokemonsListComponent implements OnInit {
   regions: any[] = [];
   selectedRegion: any[] = [];
@@ -17,10 +16,10 @@ export class StarterPokemonsListComponent implements OnInit {
     this.getRegionsData();
   }
 
-  getRegionsData():void {
+  getRegionsData(): void {
     this.PokemonsService.getGenerationList().subscribe((response: any) => {
       response.results.forEach((generation: any) => {
-        const id:number = generation.url.slice(
+        const id: number = generation.url.slice(
           generation.url.length - 2,
           generation.url.length - 1
         );
@@ -39,9 +38,9 @@ export class StarterPokemonsListComponent implements OnInit {
             this.regions = this.regions.map((region: any) => {
               const pokemonsData: any[] = [];
               region.pokemons.forEach((p: any) =>
-                this.PokemonsService.getPokemonData(p.name).subscribe((data: any) =>
-                  pokemonsData.push(data)
-                )
+                this.PokemonsService.getPokemonData(
+                  p.name
+                ).subscribe((data: any) => pokemonsData.push(data))
               );
 
               return { ...region, pokemonsData: pokemonsData };
@@ -52,8 +51,7 @@ export class StarterPokemonsListComponent implements OnInit {
     });
   }
 
-  onRegionSelect(region) :void {
-    console.log(region)
-    this.selectedRegion = region
+  onRegionSelect(region): void {
+    this.selectedRegion = region;
   }
 }

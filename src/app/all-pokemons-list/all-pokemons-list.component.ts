@@ -30,7 +30,7 @@ export class AllPokemonsListComponent implements OnInit {
                 (a, b) => a.id - b.id
               ))
           )
-          )
-          );
+        )
+    );
   }
 }

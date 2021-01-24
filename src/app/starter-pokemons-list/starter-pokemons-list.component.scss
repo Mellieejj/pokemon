@@ -5,7 +5,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  margin: 12px; 
+  margin: 12px;
   max-width: 100%;
 
   @include desktop {
@@ -20,7 +20,7 @@
     background-color: #333;
     color: $white;
     text-align: center;
-    border: 2px solid darken($white, 25%)
+    border: 2px solid darken($white, 25%);
   }
 }
 
@@ -38,10 +38,9 @@
 
 app-pokemon-card {
   width: 100%;
-  
+
   @include desktop {
     width: 30%;
     margin: 6px;
   }
 }
-
