@@ -30,10 +30,11 @@ export class StarterPokemonsListComponent implements OnInit {
             this.regions = [
               ...this.regions,
               {
+                id: generation.id,
                 region: generation['main_region'].name,
                 pokemons: generation['pokemon_species'].slice(0, 3),
               },
-            ];
+            ].sort((a, b) => a.id - b.id);
 
             this.regions = this.regions.map((region: any) => {
               const pokemonsData: any[] = [];
@@ -52,6 +53,7 @@ export class StarterPokemonsListComponent implements OnInit {
   }
 
   onRegionSelect(region) :void {
+    console.log(region)
     this.selectedRegion = region
   }
 }
