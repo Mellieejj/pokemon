@@ -1,5 +1,7 @@
-<div *ngFor="let region of regions" (click)="onRegionSelect(region)">
-  <strong>{{ region.region | titlecase }}</strong>
+<div class="list">
+  <div class="list__region" *ngFor="let region of regions" (click)="onRegionSelect(region)">
+    {{ region.region | titlecase }}
+  </div>
 </div>
   
 <div *ngIf="selectedPokemons" class="pokemon-list">

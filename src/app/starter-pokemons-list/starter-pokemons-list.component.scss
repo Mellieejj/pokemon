@@ -1,5 +1,29 @@
 @import "../../styles.scss";
 
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px; 
+  max-width: 100%;
+
+  @include desktop {
+    flex-wrap: nowrap;
+  }
+
+  &__region {
+    display: inline-block;
+    flex: 1 15%;
+    padding: 16px;
+    font-weight: bold;
+    background-color: #333;
+    color: $white;
+    text-align: center;
+    border: 2px solid darken($white, 25%)
+  }
+}
+
 .pokemon-list {
   display: flex;
   flex-wrap: wrap;
@@ -16,3 +40,4 @@ app-pokemon-card {
     margin: 6px;
   }
 }
+
