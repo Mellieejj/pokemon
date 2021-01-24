@@ -1,1 +1,9 @@
-<p>starter-pokemons-list works!</p>
+<div *ngFor="let region of regions">
+  <strong>{{ region.region | titlecase }}</strong>
+  <div class="pokemon-list">
+    <app-pokemon-card
+      *ngFor="let pokemon of region.pokemonsData"
+      [pokemon]="pokemon"
+    ></app-pokemon-card>
+  </div>
+</div>

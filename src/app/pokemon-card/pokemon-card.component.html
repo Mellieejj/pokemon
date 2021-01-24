@@ -1,0 +1,21 @@
+<div class="pokemon-card">
+  <div class="pokemon-card__img">
+    <img
+      [src]="pokemon.sprites.other['official-artwork']['front_default']"
+      alt="{{ pokemon.name }}"
+    />
+  </div>
+  <div class="pokemon-card__content">
+    <h3>{{ pokemon.name | titlecase }}</h3>
+    <p><strong>Height: </strong>{{ pokemon.height / 10 }} m</p>
+    <p><strong>Weight: </strong>{{ pokemon.weight / 10 }} kg</p>
+    <p>
+      <span
+        class="pokemon-card__type"
+        [ngStyle]="typeColors(type.type.name)"
+        *ngFor="let type of pokemon.type"
+        >{{ type.type.name | titlecase }}
+      </span>
+    </p>
+  </div>
+</div>
