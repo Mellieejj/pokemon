@@ -24,6 +24,10 @@
   }
 }
 
+.selectedRegion {
+  background-color: lighten(#333, 25%);
+}
+
 .pokemon-list {
   display: flex;
   flex-wrap: wrap;
