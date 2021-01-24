@@ -1,9 +1,10 @@
-<div *ngFor="let region of regions">
+<div *ngFor="let region of regions" (click)="onRegionSelect(region)">
   <strong>{{ region.region | titlecase }}</strong>
-  <div class="pokemon-list">
+</div>
+  
+<div *ngIf="selectedPokemons" class="pokemon-list">
     <app-pokemon-card
-      *ngFor="let pokemon of region.pokemonsData"
+      *ngFor="let pokemon of selectedPokemons"
       [pokemon]="pokemon"
     ></app-pokemon-card>
   </div>
-</div>

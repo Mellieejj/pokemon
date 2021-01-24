@@ -9,6 +9,7 @@ import { PokemonsService } from '../services/pokemons.service';
 
 export class StarterPokemonsListComponent implements OnInit {
   regions: any[] = [];
+  selectedPokemons: any[] = [];
 
   constructor(private PokemonsService: PokemonsService) {}
 
@@ -48,5 +49,12 @@ export class StarterPokemonsListComponent implements OnInit {
         );
       });
     });
+  }
+
+  onRegionSelect(region) :void {
+    console.log(region)
+    this.selectedPokemons = region.pokemonsData
+
+    console.log(this.selectedPokemons)
   }
 }
