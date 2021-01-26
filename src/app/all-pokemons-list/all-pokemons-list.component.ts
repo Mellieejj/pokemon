@@ -9,6 +9,8 @@ import { PokemonsService } from '../services/pokemons.service';
 })
 export class AllPokemonsListComponent implements OnInit {
   pokemons: any[] = [];
+  page: number = 1;
+  totalPokemons: number;
   constructor(private PokemonsService: PokemonsService) {}
 
   ngOnInit(): void {
@@ -16,13 +18,14 @@ export class AllPokemonsListComponent implements OnInit {
   }
 
   allPokemons() {
-    this.PokemonsService.getAllPokemons().subscribe(
+    this.PokemonsService.getAllPokemons(25, ((this.page-1) *25)).subscribe(
       (response: {
-        count: string;
+        count: number;
         next: string;
         previous: string;
         results: [];
-      }) =>
+      }) => {
+        this.totalPokemons = response.count;
         response.results.forEach((p: { name: string; url: string }) =>
           this.PokemonsService.getPokemonData(p.name).subscribe(
             (pokemon: any) =>
@@ -30,7 +33,14 @@ export class AllPokemonsListComponent implements OnInit {
                 (a, b) => a.id - b.id
               ))
           )
-        )
+        );
+      }
     );
+  }
+
+  handlePageEvent(event){
+    this.page = event; 
+    this.pokemons = []; 
+    this.allPokemons();
   }
 }

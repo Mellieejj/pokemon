@@ -1,6 +1,7 @@
 <div class="pokemon-card">
   <div class="pokemon-card__img">
     <img
+      *ngIf="pokemon.sprites.other['official-artwork']['front_default']"
       [src]="pokemon.sprites.other['official-artwork']['front_default']"
       alt="{{ pokemon.name }}"
     />
