@@ -8,9 +8,25 @@
   justify-content: center;
 }
 
+.pagination {
+  text-align: center;
+
+  ::ng-deep .ngx-pagination {
+    li a:hover:not(.current){
+      background-color: lighten($red, 35%);
+      border-radius: 4px;
+    }
+    
+    .current {
+      background-color: $red;
+      border-radius: 4px;
+    }
+  }
+}
+
 app-pokemon-card {
   width: 100%;
-  
+
   @include desktop {
     width: 19%;
     margin: 6px;

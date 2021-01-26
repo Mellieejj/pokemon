@@ -8,6 +8,7 @@ import { AllPokemonsListComponent } from './all-pokemons-list/all-pokemons-list.
 import { StarterPokemonsListComponent } from './starter-pokemons-list/starter-pokemons-list.component';
 import { RegionListComponent } from './region-list/region-list.component';
 import { PokemonCardComponent } from './pokemon-card/pokemon-card.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -21,9 +22,11 @@ import { PokemonCardComponent } from './pokemon-card/pokemon-card.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
