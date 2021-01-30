@@ -10,6 +10,7 @@ import { PokemonCardComponent } from './pokemon-card/pokemon-card.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
+import { PokeballComponent } from './pokeball/pokeball.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FormsModule } from '@angular/forms';
     StarterPokemonsListComponent,
     PokemonCardComponent,
     HomeComponent,
+    PokeballComponent,
   ],
   imports: [
     BrowserModule,
