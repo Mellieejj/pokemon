@@ -1,10 +1,10 @@
-@import'../../styles.scss';
+@import "../../styles.scss";
 
 header {
   background-color: $red;
   padding: 24px;
-  display: flex;
   max-width: 100%;
+  display: flex;
   justify-content: space-between;
   align-items: center;
 
@@ -12,28 +12,76 @@ header {
     color: $white;
   }
 
-  .nav {
-    max-width: 50%;
-    justify-self: flex-end;
-    font-weight: bolder;
+  .toggle {
+    display: none;
+  }
 
-    &-list {
-      list-style-type: none;
+  .toggle-label {
+    display: block;
+    color: white;
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  .nav {
+    $el: ".nav";
+    font-weight: bolder;
+    position: absolute;
+    min-height: 100vh;
+    width: 100%;
+    top: calc((2rem + 48px));
+    left: 0;
+    display: block;
+    z-index: 9999;
+    transform-origin: top;
+    transform: scale(1, 0);
+    transition: transform 400ms ease-in-out;
+    background-color: $white;
+
+    @include desktop {
+      justify-self: flex-end;
       display: flex;
-      align-items: center;
+      max-width: 75%;
+      min-height: auto;
+      width: auto;
+      top: 0;
+      position: relative;
+      transform: scale(1, 1);
+      background-color: transparent;
     }
 
-    &-list__item a {
-      display: block;
+    &__item {
+      position: relative;
       text-decoration: none;
-      background-color: $white;
       color: $black;
+      background-color: $white;
+      text-align: center;
+      display: block;
+      width: 100%;
       padding: 24px;
-      margin-right: 12px;
+      border-bottom: 1px solid $black;
 
-      &:hover {
-        background-color: lighten($red, 25%)
+      @include desktop {
+        padding: 12px;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        display: flex;
+        flex: 1;
+        margin-right: 8px;
+        border-bottom: none;
+
+        &:hover {
+          background-color: lighten($red, 25%);
+        }
       }
     }
+  }
+
+  .toggle:checked ~ .nav {
+    transform: scale(1, 1);
   }
 }

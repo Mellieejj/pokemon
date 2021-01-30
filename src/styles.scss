@@ -12,6 +12,18 @@ $black: #313131;
 }
 
 body {
-  font-size: 18px;
+  font-size: 16px;
   background-color: $white;
+
+  @include tablet {
+    font-size: 18px;
+  }
+}
+
+h1 {
+  font-size: 2rem;
+
+  @include tablet {
+    font-size: 1.75rem;
+  }
 }

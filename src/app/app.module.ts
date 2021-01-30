@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { AllPokemonsListComponent } from './all-pokemons-list/all-pokemons-list.component';
 import { StarterPokemonsListComponent } from './starter-pokemons-list/starter-pokemons-list.component';
-import { RegionListComponent } from './region-list/region-list.component';
 import { PokemonCardComponent } from './pokemon-card/pokemon-card.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { HomeComponent } from './home/home.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,14 +17,15 @@ import { NgxPaginationModule } from 'ngx-pagination';
     HeaderComponent,
     AllPokemonsListComponent,
     StarterPokemonsListComponent,
-    RegionListComponent,
     PokemonCardComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
