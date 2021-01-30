@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Event, NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -23,7 +24,13 @@ export class HeaderComponent implements OnInit {
   ];
   toggleChecked: boolean = false;
 
-  constructor() {}
+  constructor(private router: Router) {
+    this.router.events.subscribe((event: Event) => {
+      if (event instanceof NavigationEnd){
+        this.toggleChecked = false;
+      }
+    })
+  }
 
   ngOnInit(): void {}
 
