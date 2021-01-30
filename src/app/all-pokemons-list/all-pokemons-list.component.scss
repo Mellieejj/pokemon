@@ -1,5 +1,12 @@
 @import "../../styles.scss";
 
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+}
+
 .pokemon-list {
   display: flex;
   flex-wrap: wrap;

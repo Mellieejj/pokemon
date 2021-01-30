@@ -7,6 +7,7 @@ import { PokemonsService } from '../services/pokemons.service';
   templateUrl: './all-pokemons-list.component.html',
   styleUrls: ['./all-pokemons-list.component.scss'],
 })
+
 export class AllPokemonsListComponent implements OnInit {
   pokemons: any[] = [];
   page: number = 1;
