@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TypeColor } from '../interfaces/other';
-import { Pokemon } from '../interfaces/pokemon';
+import { PokemonData } from '../interfaces/pokemon';
 
 @Component({
   selector: 'app-pokemon-card',
@@ -9,7 +9,7 @@ import { Pokemon } from '../interfaces/pokemon';
 })
 
 export class PokemonCardComponent implements OnInit {
-  @Input() pokemon: Pokemon;
+  @Input() pokemon: PokemonData;
   constructor() {}
 
   ngOnInit(): void {}

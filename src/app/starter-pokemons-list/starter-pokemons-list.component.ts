@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonsService } from '../services/pokemons.service';
+import { Response, ResponseResult, Generation, Region, PokemonData } from '../interfaces/pokemon';
 
 @Component({
   selector: 'app-starter-pokemons-list',
@@ -7,8 +8,8 @@ import { PokemonsService } from '../services/pokemons.service';
   styleUrls: ['./starter-pokemons-list.component.scss'],
 })
 export class StarterPokemonsListComponent implements OnInit {
-  regions: any[] = [];
-  selectedRegion: any[] = [];
+  regions: Region[] = [];
+  selectedRegion: Region;
 
   constructor(private PokemonsService: PokemonsService) {}
 
@@ -17,15 +18,15 @@ export class StarterPokemonsListComponent implements OnInit {
   }
 
   getRegionsData(): void {
-    this.PokemonsService.getGenerationList().subscribe((response: any) => {
-      response.results.forEach((generation: any) => {
-        const id: number = generation.url.slice(
+    this.PokemonsService.getGenerationList().subscribe((response: Response) => {
+      response.results.forEach((generation: ResponseResult) => {
+        const id: number = parseInt(generation.url.slice(
           generation.url.length - 2,
           generation.url.length - 1
-        );
+        ));
 
         this.PokemonsService.getGenerationPokemons(id).subscribe(
-          (generation: any) => {
+          (generation: Generation) => {
             this.regions = [
               ...this.regions,
               {
@@ -35,13 +36,13 @@ export class StarterPokemonsListComponent implements OnInit {
               },
             ].sort((a, b) => a.id - b.id);
 
-            this.regions = this.regions.map((region: any) => {
-              const pokemonsData: any[] = [];
-              region.pokemons.forEach((p: any) =>
+            this.regions = this.regions.map((region: Region) => {
+              const pokemonsData: PokemonData[] = [];
+              region.pokemons.forEach((p: ResponseResult) => {
                 this.PokemonsService.getPokemonData(
                   p.name
-                ).subscribe((data: any) => pokemonsData.push(data))
-              );
+                ).subscribe((data: PokemonData) => pokemonsData.push(data))
+                });
 
               return { ...region, pokemonsData: pokemonsData };
             });
@@ -51,7 +52,7 @@ export class StarterPokemonsListComponent implements OnInit {
     });
   }
 
-  onRegionSelect(region): void {
+  onRegionSelect(region: Region): void {
     this.selectedRegion = region;
   }
 }
