@@ -1,7 +1,7 @@
 <header>
   <h1>{{ appTitle }}</h1>
   <label for="nav-checkbox" class="toggle-label">{{toggleChecked ? 'Close' : 'Menu'}}</label>
-  <input id="nav-checkbox" type="checkbox" class="toggle" (change)="changeEvent($event.target)" [(ngModel)]="toggleChecked" />
+  <input id="nav-checkbox" type="checkbox" class="toggle" [(ngModel)]="toggleChecked" />
   <nav class="nav">
     <a class="nav__item" *ngFor="let item of navItems" routerLink="/{{ item.location }}">
     <div >

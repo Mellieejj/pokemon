@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Event, NavigationEnd, Router } from '@angular/router';
+import { NavItem } from '../interfaces/other';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,7 @@ import { Event, NavigationEnd, Router } from '@angular/router';
 
 export class HeaderComponent implements OnInit {
   appTitle: string = 'Pokémon App';
-  navItems: { name: string; location: string }[] = [
+  navItems: NavItem[] = [
     {
       name: 'Home',
       location: '',
@@ -27,15 +28,11 @@ export class HeaderComponent implements OnInit {
 
   constructor(private router: Router) {
     this.router.events.subscribe((event: Event) => {
-      if (event instanceof NavigationEnd){
+      if (event instanceof NavigationEnd) {
         this.toggleChecked = false;
       }
-    })
+    });
   }
 
   ngOnInit(): void {}
-
-  changeEvent(event): void {
-    this.toggleChecked = event.target.checked;
-  }
 }
