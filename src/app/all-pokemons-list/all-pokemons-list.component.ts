@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Pokemon } from '../interfaces/pokemon';
+import { PokemonData, ResponseResult, Response } from '../interfaces/pokemon';
 import { PokemonsService } from '../services/pokemons.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { PokemonsService } from '../services/pokemons.service';
 })
 
 export class AllPokemonsListComponent implements OnInit {
-  pokemons: any[] = [];
+  pokemons: PokemonData[] = [];
   page: number = 1;
   totalPokemons: number;
   
@@ -20,17 +20,12 @@ export class AllPokemonsListComponent implements OnInit {
   }
 
   allPokemons() {
-    this.PokemonsService.getAllPokemons(25, ((this.page-1) *25)).subscribe(
-      (response: {
-        count: number;
-        next: string;
-        previous: string;
-        results: [];
-      }) => {
+    this.PokemonsService.getAllPokemons(25, ((this.page-1) * 25)).subscribe(
+      (response: Response) => {
         this.totalPokemons = response.count;
-        response.results.forEach((p: { name: string; url: string }) =>
+        response.results.forEach((p: ResponseResult) =>
           this.PokemonsService.getPokemonData(p.name).subscribe(
-            (pokemon: any) =>
+            (pokemon: PokemonData) =>
               (this.pokemons = [...this.pokemons, pokemon].sort(
                 (a, b) => a.id - b.id
               ))
@@ -40,8 +35,8 @@ export class AllPokemonsListComponent implements OnInit {
     );
   }
 
-  handlePageEvent(event){
-    this.page = event; 
+  handlePageEvent(eventPage: number){
+    this.page = eventPage; 
     this.pokemons = []; 
     this.allPokemons();
   }

@@ -1,11 +1,11 @@
 <div class="list">
   <div
     class="list__region"
-    *ngFor="let region of regions"
-    (click)="onRegionSelect(region)"
-    [class.selectedRegion]="region.region === selectedRegion.region"
+    *ngFor="let reg of regions"
+    (click)="onRegionSelect(reg)"
+    [class.selectedRegion]="reg.region === selectedRegion?.region"
   >
-    {{ region.region | titlecase }}
+    {{ reg.region | titlecase }}
   </div>
 </div>
 

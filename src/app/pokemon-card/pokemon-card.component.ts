@@ -1,17 +1,20 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { TypeColor } from '../interfaces/other';
+import { PokemonData } from '../interfaces/pokemon';
 
 @Component({
   selector: 'app-pokemon-card',
   templateUrl: './pokemon-card.component.html',
   styleUrls: ['./pokemon-card.component.scss'],
 })
+
 export class PokemonCardComponent implements OnInit {
-  @Input() pokemon;
+  @Input() pokemon: PokemonData;
   constructor() {}
 
   ngOnInit(): void {}
 
-  typeColors(type: string) {
+  typeColors(type: string): TypeColor {
     switch (type) {
       case 'normal':
         return {
